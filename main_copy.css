@@ -5,143 +5,11 @@
 	box-sizing:border-box;
 }
 
-/*complete header*/
-.header{
-			background: #24d152;
-			height: 150px;
-		}
-.header::after{
-			content:" ";
-			clear: both;
-			display: inline-block;
-			visibility: none;
-		}
-
-/*showtime logo part*/
-	.title{
-		float: left;
-		font-size: 50px;
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	.title a{
-		text-decoration: none;
-		font-family: 'Marck Script', cursive;
-		color: black;
-	}
-	.title a:hover{
-		color: white;
-	}
-/*the logo on top of the page*/		
-	.logo1{
-		max-width: 1300px;
-		margin: 0 auto;
-		}
-
-		
-
-		
 
 
-/*Right tokens*/		
-		.right_tokens ul{
-			padding-top: 20px;
-			display: inline-block;
-			margin: 0px;
-		}
-		.right_tokens ul a{
-			padding-right: 20px;
-			text-decoration: none;
-			color: black;
-			}
-		.right_tokens{
-			float: right;
-			margin:20px;
-		}
-		.right_tokens ul li a:hover{
-			color: white;
-		}
-
-
-		.dropbtn1, .dropbtn2, .dropbtn3 {
-		  color: white;
-		  padding: 16px;
-		  text-decoration: none;
-		  border: none;
-		}
-		.dropdown1, .dropdown2, .dropdown3 {
-		  position: relative;
-		  display: inline-block;
-		}
-		.dropdown-content1, .dropdown-content2, .dropdown-content3  {
-		  display: none;
-		  position: absolute;
-		  background-color: white;
-		  min-width: 100px;
-		}
-
-		.dropdown-content1 a, .dropdown-content2 a, .dropdown-content3 a{
-		  color: white;
-		  padding:10px;
-		  text-decoration: none;
-		  display: block;
-		}
-		
-
-/*bottom tokens*/
-		.bottom-header ul{
-			padding-top: 20px;
-			display: inline-block;
-			margin: 0px;
-		}
-		.bottom-header ul a{
-			padding-right: 20px;
-			text-decoration: none;
-			color: black;
-		}
-		.bottom-header{
-			float: right;
-			clear: both;
-		}	
-		.bottom-header ul a:hover{
-			color: white;
-		}
-		.login, .signup, .profile {
-		  position: relative;
-		  display: inline-block;
-		}
-
-
-
-.logo1 .livesearch input[type=text] {
-	position: absolute;
-	top: 90px;
-	left: 80px;
-  width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+a{
+	text-decoration: none;
 }
-
-.logo1 .livesearch input[type=text]:focus {
-  width: 500px;
-}	
-
-
-ul,ol{
-	margin-bottom: 20px;
-	margin-left: 20px;
-
-}
-
 	/* this is for image */
 img{
 	display: block;
@@ -156,23 +24,6 @@ height: 250px;
 width: 100%;
 position: relative;
 }
-/* 
-.carousel .switchLeft,
-.carousel .switchRight {
-color: white;
-font-weight: bold;
-height: 100%;
-width: 45px;
-line-height: 250px;
-font-size: 25px;
-text-align: center;
-background-color: lightgreen;
-font-family: sans-serif;
-top: 0;
-z-index: 3;
-} */
-
-
 
 .carouselbox {
 height: 300px;
@@ -207,4 +58,5 @@ z-index: 5;
 		/* to hide the horizontal and vertical scrollbar */
 .carousel ::-webkit-scrollbar{
 	overflow: hidden;
+	display: none;
 }

@@ -64,5 +64,25 @@
         </div>
 
     </div>
+
+<script>
+ var dict = {
+    "slider1": "trending/movie/day",
+    "slider2": "movie/popular",
+    "slider3": "movie/now_playing",
+    "slider4": "movie/upcoming",
+    "slider5": "trending/tv/day",
+    "slider6": "tv/popular",
+    "slider7": "tv/on_the_air",
+    "slider8": "tv/top_rated"
+  };
+
+  showMovies_Tv(dict);
+
+</script>
+
+        <!-- if (window.location.href == 'http://localhost/showtime/' || window.location.href == 'http://localhost/showtime/index.php'){ -->
+
+    <!-- ids : movies, slider1 to slider8 -->
 </body>
 </html>

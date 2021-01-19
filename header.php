@@ -13,103 +13,114 @@ session_start();
 
 	<link href="https://fonts.googleapis.com/css?family=Marck+Script|Open+Sans&display=swap" rel="stylesheet">
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-   <!-- Option 1: Bootstrap Bundle with Popper, difference is it include collapse and popup like modal-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-  </script>
-
-  <!--  jquery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   
   	<!-- axios -->
 	 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	 
-	 <script type="text/javascript" src="jscript.js"></script>
 	 <link rel="stylesheet" type="text/css" href="main_copy.css">
+
+	 <script type="text/javascript" src="jscript.js"></script>
 
 
 
 </head>
 <body>
-	<header class="header">
-		<div class="logo1">
-				<p class="title"><a href="index.php">Showtime</a></p>
-			<nav class="right_tokens">
-				<ul>
-					<div class="dropdown1">
-					 	<a href="#" class="dropbtn1">Movies</a>
-					</div>
-					<div class="dropdown2">
-						<a href="#" class="dropbtn2">Web Series</a>
-					</div>
-					<div class="dropdown3">
-					 	<a href="#" class="dropbtn3">Genre</a>
-					</div>
-				</ul>
-			</nav>
-			<nav class="bottom-header">
-				<ul>
-					<div class="bottom">
+	
+	<?php
+	echo'
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+		<a class="navbar-brand mr-5" href="/showtime">Showtime</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="/showtime">Home <span class="sr-only">(current)</span></a>
+			</li>
 
-						<div class="login">
-							<?php
-								if(isset($_SESSION['u_name']))
-									{
-										echo'<form action="includes/logoutdb.php" method="POST">
-										<button type="submit" name="submit">Logout</button>
-									</form>';
-									}
-								
-								else{
+			
 
-									echo '<form action="includes/logindb.php" method="POST">
-										<input type="text" name="user_name" placeholder="Enter Name">
-										<input type="password" name="user_password" placeholder="Enter Password">
-										<button type="submit" name="submit">Log-in</button>
-									</form>';
-								}
-							?>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="movie" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Movie
+				</a>
+				<div class="dropdown-menu" aria-labelledby="movie">
+					<a class="dropdown-item" href="movie.php?filter=popular" >Popular</a>
+					<a class="dropdown-item" href="movie.php?filter=now_playing" >Now Playing</a>
+					<a class="dropdown-item" href="movie.php?filter=upcoming" >Upcoming</a>
+				</div>
+			</li>
 
-						
-						</div>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="tvshows" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					TV shows
+				</a>
+				<div class="dropdown-menu" aria-labelledby="tvshows">
+					<a class="dropdown-item" href="tvshow.php?filter=popular">Popular</a>
+					<a class="dropdown-item" href="tvshow.php?filter=on_the_air">On Air</a>
+					<a class="dropdown-item" href="tvshow.php?filter=top_rated">Top rated</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+  </nav>
 
-
-							<div  class="signup"><a href="signup.php"><?php
-								if(!isset($_SESSION['u_name']))
-								{	
-									echo 'signup';
-								}
-						?></a></div>	
-
-
-
-							
-						<div  class="profile"><a href="profile.php"><?php
-								if(isset($_SESSION['u_name']))
-								{	
-									echo $_SESSION['u_name'];
-								}
-						?></a></div>	
-					</div>
-				</ul>
-			</nav>
-		<!---------------------------------------search--------------------------->
-			<div class="livesearch">
-				<form  action="movie_page.php" method="POST" id="searchform" >
-					 <input type="text" name="Search" placeholder="Search.." id="searchtext"  >
-				</form>
+		<div class="input-group mb-3 container">
+			<div class="input-group-prepend">
+				<button type="button" class="btn btn-outline-secondary" id="searching" >Search</button>
+				<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#" onclick="setfilter(1)">Movies</a>
+					<a class="dropdown-item" href="#" onclick="setfilter(2)">Tv Shows</a>
+					<a class="dropdown-item" href="#" onclick="setfilter(3)">Both</a>
+				</div>
 			</div>
-		</div>		
-	</header>
+			<input type="text" class="form-control col-md-4 col-sm-3" id="searchtext" aria-label="Text input with segmented dropdown button">
+			<span id="searchwarn"></span>
+		</div>
+  ';
 
+	?>
+	<script>
+	var media = 'multi';
+	function setfilter(temptype){
+		if (temptype == 1){ media = 'movie';}
+		else if (temptype == 2) { media= 'tv';}
+		else { media = 'multi';}
+		console.log(media);
+	}
+		$(document).ready(() => {
 
-	<div class="space"></div>
+			$('#searching').on('click', (e) => {
+			// console.log("here");
+			let searchText = $('#searchtext').val();
+			if(searchText.length <1){
+				$("#searchwarn").text("Input length should be more than 2 letters ");
+			}
+			// else if (media == 'unknown'){ 
+			// 	$("#searchwarn").text("Please select a search option   ");
+			// }
+			else{
+				sessionStorage.setItem('searchquery', searchText);
+				window.location = 'search.php?filter='+media;
 
+			}
+			// getMovies(searchText);
+			e.preventDefault();
+			});
+		});
+
+	</script>
+
+		<!-- ids : movie, tvshows -->
 </body>
 
 </html>
