@@ -47,3 +47,48 @@
 
 </body>
 </html>
+
+
+<div class="input-group mb-3 pl-5 bg-light">
+			<div class="input-group-prepend">
+				<button type="button" class="btn btn-outline-secondary bg-warning" id="searching" >Search</button>
+				<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<span class="sr-only">Toggle Dropdown</span>
+				</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#" onclick="setfilter(1)">Movies</a>
+					<a class="dropdown-item" href="#" onclick="setfilter(2)">Tv Shows</a>
+					<a class="dropdown-item" href="#" onclick="setfilter(3)">Both</a>
+				</div>
+			</div>
+				<input type="text" class="form-control col-md-4 col-sm-3" id="searchtext" aria-label="Text input with segmented dropdown button">
+			<span id="searchwarn"></span>
+		</div>
+
+
+
+    var userid = <?php echo $user_id ?>;
+
+$.ajax({
+
+    url : 'partials/phpaction.php',
+    method : 'POST',
+    dataType : 'text',
+    data : { reviewed : 1, review: review, movieid = movieid, userid : userid },
+    success : function(response){
+        $("#title").val("");
+        $("#desc").val("");
+        $("#togglebtn").click();
+        if(response == 0){
+            $("#formresponse").html('<p class="alert alert-success"> Enter Text data only !</p>');
+        }
+        else
+        {
+        $("#formresponse").html('<p class="alert alert-success"> question posted Successfully !</p>');
+        max = <?php echo $totalthreads ?>;
+        max++;
+        $("#loadthreads").prepend(response);
+        $("#totalthreads").text(max+ " Question");
+        }
+    }
+});

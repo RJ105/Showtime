@@ -69,7 +69,7 @@ async function showMovies_Tv(dict) {
     result.map(function (cur, index) {
       sliders.insertAdjacentHTML(
         "beforeend",
-        `<a href="#" onclick="showSelected(${cur.id},${flag})" ><img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" /></a> `
+        `<a href="javascript:void(0)" onclick="showSelected(${cur.id},${flag})" ><img class="img-${index} slider-img" src="http://image.tmdb.org/t/p/w185/${cur.poster_path}" /></a> `
       );
     });
  }
@@ -108,14 +108,14 @@ function getTvshowByType(type, page){
   console.log(type,page);
   axios.get('https://api.themoviedb.org/3/tv/'+type+'?api_key=71759a6f915d65cb83e083babbf19d3f&language=en-US&page='+page)
   .then((response) => {
-        console.log(response);
+        console.log(response.data.results);
       let movies = response.data.results;
         let output = '';
         $.each(movies, (index, movie) => {
           output += `
             <div class="col-lg-3 col-md-3 col-sm-4 col-6 ">
               <div class="img-thumbnail text-center mt-5">
-                <a href="#" onclick="showSelected(${movie.id},1)"><img src="https://image.tmdb.org/t/p/original/${movie.poster_path}"></a>
+                <a href="#" onclick="showSelected(${movie.id},0)"><img src="https://image.tmdb.org/t/p/original/${movie.poster_path}"></a>
                 <h5>${movie.original_name}</h5>
               </div>
             </div>
@@ -255,3 +255,11 @@ function getShowInfo(){
 
     return [movieId, showtype];
 }
+
+
+
+              // -------------------------------------------------------------------------------------
+
+
+
+

@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+include "dbconnect.php";
+include 'loginmodal.php';
 
 ?>
 
@@ -15,16 +17,16 @@ session_start();
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   
   	<!-- axios -->
 	 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	 <link rel="stylesheet" type="text/css" href="main_copy.css">
+	 <link rel="stylesheet" type="text/css" href="partials/main_copy.css">
 
-	 <script type="text/javascript" src="jscript.js"></script>
+	 <script type="text/javascript" src="partials/jscript.js"></script>
 
 
 
@@ -68,12 +70,36 @@ session_start();
 				</div>
 			</li>
 		</ul>
-	</div>
+	</div>';
+
+
+			if(isset($_SESSION['username']))
+			{
+			echo '
+			<div class="mx-2">
+				<button class="btn btn-danger ml-3"  >'.$_SESSION['username'].'</button>
+				<a class="btn btn-success mx-2 " href="partials/logout.php">Logout</a>
+			</div>
+			';
+			}
+			else
+			{ 
+			echo'
+			<div class="mx-2">
+			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginmodal">Login</button>
+			<a href="signup.php" ><button class="btn btn-success mx-2 " >signup</button></a>
+			</div>
+			';
+			}
+			
+
+echo'
   </nav>
 
-		<div class="input-group mb-3 container">
+	
+		<div class="input-group mb-3 pl-5 bg-light">
 			<div class="input-group-prepend">
-				<button type="button" class="btn btn-outline-secondary" id="searching" >Search</button>
+				<button type="button" class="btn btn-outline-secondary bg-warning" id="searching" >Search</button>
 				<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="sr-only">Toggle Dropdown</span>
 				</button>
@@ -83,9 +109,12 @@ session_start();
 					<a class="dropdown-item" href="#" onclick="setfilter(3)">Both</a>
 				</div>
 			</div>
-			<input type="text" class="form-control col-md-4 col-sm-3" id="searchtext" aria-label="Text input with segmented dropdown button">
+				<input type="text" class="form-control col-md-4 col-sm-3" id="searchtext" aria-label="Text input with segmented dropdown button">
 			<span id="searchwarn"></span>
 		</div>
+		
+		
+		
   ';
 
 	?>
